@@ -5,9 +5,9 @@
 <body>
   <script type="text/jsx">
 
- /* [TODO APP] */
+  /* [TODO APP] */
 
-var TodoApp = React.createClass({
+  var TodoApp = React.createClass({
     getInitialState: function(){
       return {items: []};
     },
@@ -18,9 +18,9 @@ var TodoApp = React.createClass({
     render: function(){
       return (
         <div>
-          <TodoBanner/>
-          <TodoList items={this.state.items}/>
-          <TodoForm onFormSubmit={this.updateItems}/>
+        <TodoBanner/>
+        <TodoList items={this.state.items}/>
+        <TodoForm onFormSubmit={this.updateItems}/>
         </div>
         );
     }
@@ -37,7 +37,16 @@ var TodoApp = React.createClass({
     }
   });
 
-  var TodoList = React.createClass({});
+  var TodoList = React.createClass({
+    render: function(){
+      var createItem = function(itemText) {
+        return (
+          <TodoListItem>{itemText}</TodoListItem>
+          );
+      };
+      return <ul>{this.props.items.map(createItem)}</ul>;
+    }
+  });
 
   /* [TODO LIST ITEM] */
 
