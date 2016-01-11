@@ -3,6 +3,7 @@
   <script src="https://fb.me/JSXTransformer-0.12.2.js"></script>
 </head>
 <body>
+
   <script type="text/jsx">
 
   /* [TODO APP] */
@@ -18,9 +19,9 @@
     render: function(){
       return (
         <div>
-        <TodoBanner/>
-        <TodoList items={this.state.items}/>
-        <TodoForm onFormSubmit={this.updateItems}/>
+          <TodoBanner/>
+          <TodoList items={this.state.items}/>
+          <TodoForm onFormSubmit={this.updateItems}/>
         </div>
         );
     }
@@ -53,14 +54,16 @@
   var TodoListItem = React.createClass({
     render: function(){
       return (
-        <li>{this.props.children}</li>
+        <li>
+        <input type='checkbox'/>
+        {this.props.children}</li>
         );
     }
   });
 
   /* [TODO FORM] */
 
-var TodoForm = React.createClass({
+  var TodoForm = React.createClass({
     getInitialState: function(){
       return {item: ''};
     },
